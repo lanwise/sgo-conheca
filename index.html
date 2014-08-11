@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-
+    <link rel="stylesheet" href="css/animate.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-<link rel="icon" href="favicon.ico" type="image/x-icon">
-
+    <link rel="icon" href="favicon.ico" type="image/x-icon">        
+    <script type="text/javascript" src="js/jquery-1.11.0.js"></script>    
     <title>SgO v2.1</title>
 
     <!-- Bootstrap Core CSS -->
@@ -30,6 +30,11 @@
     <![endif]-->
 
     <style type="text/css">
+     #menu{
+        -webkit-box-shadow: 0px 10px 5px 0px rgba(76, 76, 76, 0.75);
+        -moz-box-shadow:    0px 10px 5px 0px rgba(76, 76, 76, 0.75);
+        box-shadow:         0px 10px 5px 0px rgba(76, 76, 76, 0.75);
+     }
 <!--
 .style1 {
 	color: #009900;
@@ -45,7 +50,7 @@
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <nav id="menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header" style="margin-bottom:10px;">
@@ -73,7 +78,9 @@
                         <a href="#clientes">Clientes</a>
                     </li>
                     <li>
-                        <a href="mailto:comercial@lanwise.com.br">Contato</a>
+			<!-- LiveZilla Tracking Code (ALWAYS PLACE IN BODY ELEMENT) --><div id="livezilla_tracking" style="display:none"></div><script type="text/javascript">
+var script = document.createElement("script");script.async=true;script.type="text/javascript";var src = "http://lanwise.com.br/live/server.php?a=e2196&request=track&output=jcrpt&ovlp=MjI_&ovlc=IzczYmUyOA__&ovlct=I2ZmZmZmZg__&ovlt=U3Vwb3J0ZSBFc3BlY2lhbGl6YWRvOiBPTkxJTkU_&ovlto=RmFsZSBDb25vc2Nv&ovlsx=NQ__&ovlsy=NQ__&ovlsb=NQ__&ovlsc=Njk2OTY5&eca=MQ__&ecw=Mjg1&ech=OTU_&ecmb=Mjk_&echt=RHV2aWRhcz8_&echst=RmFsZSBjb20gdW0gZGUgbm9zc29zIGF0ZW5kZW50ZXMu&ecoht=RHV2aWRhcz8_&ecohst=RGVpeGUgc3VhIGTDunZpZGEsIGUgZW50cmFyZW1vcyBlbSBjb250YXRv&ecfs=I0YwRkZENQ__&ecfe=I0QzRjI5OQ__&echc=IzZFQTMwQw__&ecslw=Mg__&ecsgs=IzY1OUYyQQ__&ecsge=IzY1OUYyQQ__&ecsa=MQ__&ecsb=NA__&ecsx=Mw__&ecsy=Mw__&ecsc=IzQ2NDY0Ng__&nse="+Math.random();setTimeout("script.src=src;document.getElementById('livezilla_tracking').appendChild(script)",1);</script><noscript><img src="http://lanwise.com.br/live/server.php?a=e2196&amp;request=track&amp;output=nojcrpt" width="0" height="0" style="visibility:hidden;" alt=""></noscript><!-- http://www.LiveZilla.net Tracking Code -->
+				
                     </li>
                 </ul>
             </div>
@@ -90,8 +97,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-message">
-                        <h1><span class="style1">SgO</span> Batista</h1>
-                      <h3>Sistema de Gestão Operacional</h3>
+                        <h1 id="title-sgo"><span class="style1">SgO</span> Batista</h1>
+                      <h3 id="title-describe-sgo">Sistema de Gestão Operacional</h3>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
                             <li>
@@ -125,7 +132,7 @@
                   <p class="lead">De ONDE ESTIVER atualize cadastros de  <b>membros</b>, <b>congregações</b>, <b>igrejas</b> e <b>associações</b>. Gerencie <b>projetos missionários</b> e seus contribuintes, organize  <b>assembleias</b> e <b>eventos</b> com inscrições ONLINE e disponha de geração de <b>etiquetas</b> para envios de mala direta e confecção de credenciais.</p>
               </div>
               <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="img/dog.png" alt="">
+                    <img id="img-secretaria" class="img-responsive" src="img/dog.png" alt="">
                 </div>
             </div>
 
@@ -210,8 +217,8 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <ul class="list-inline">
+                <div class="col-lg-12" id="modulo-secretaria">
+                    <ul class="list-inline" id="trigger1">
                         <li>
                             <a href="#inicio">Início</a>
                         </li>
@@ -241,12 +248,40 @@
             </div>
         </div>
     </footer>
-
-    <!-- jQuery Version 1.11.0 -->
-    <script src="js/jquery-1.11.0.js"></script>
+    
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function($){
+            $("#title-sgo").addClass('animated fadeInUp');
+            $("#title-describe-sgo").addClass('animated bounceIn');                      
+        });
+
+         $("#title-describe-sgo").hover(
+             function() {                
+                $( this ).removeClass( "animated bounceIn" );                
+                $( this ).addClass( "pulse animated" );
+                }, function() {
+                $( this ).removeClass( "pulse animated" );
+            }
+ 
+         );
+
+          $("#title-sgo").hover(
+             function() {                
+                $( this ).removeClass( "animated fadeInUp" );                
+                $( this ).addClass( "pulse animated" );
+                }, function() {
+                $( this ).removeClass( "pulse animated" );
+            }
+ 
+         );
+
+          
+     
+         
+    </script>
 
 </body>
 
